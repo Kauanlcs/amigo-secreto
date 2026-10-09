@@ -44,3 +44,11 @@ function sortear() {
   const listaSorteio = document.getElementById("lista-sorteio");
   listaSorteio.innerHTML = resultado.join("<br>");
 }
+
+function reiniciar(evento) {
+  evento.preventDefault();
+  amigos.length = 0;
+  atualizarLista();
+  document.getElementById("lista-sorteio").innerHTML = "";
+}
+
