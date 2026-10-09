@@ -20,3 +20,27 @@ function adicionar( ) {
             lista.innerHTML += "<li>" + amigos[i] + "</li>";
         }
 }
+
+function sortear() {
+ console.log("Participantes:", amigos);
+  if (amigos.length < 2) {
+    alert("Adicione pelo menos dois amigos para sortear.");
+    return;
+  }
+  const sorteado = [];
+  const resultado = [];
+
+  for (const participante of amigos) {
+    let amigoSecreto;
+     
+    do {
+      const indice = Math.floor(Math.random() * amigos.length);
+      amigoSecreto = amigos[indice];
+    } while (sorteado.includes(amigoSecreto) || amigoSecreto === participante);
+
+    sorteado.push(amigoSecreto);
+    resultado.push(`${participante} -> ${amigoSecreto}`);
+  }
+  const listaSorteio = document.getElementById("lista-sorteio");
+  listaSorteio.innerHTML = resultado.join("<br>");
+}
